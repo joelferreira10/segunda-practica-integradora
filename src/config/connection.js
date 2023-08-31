@@ -1,6 +1,7 @@
 import {connect} from 'mongoose';
-
-export const connectionString='mongodb://127.0.0.1:27017/coderSession';
+import dotev from 'dotenv'
+dotev.config()
+export const connectionString=process.env.CONNECTION_LOCAL_MONGO
 
 try{
     connect(connectionString)

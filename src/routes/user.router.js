@@ -1,13 +1,12 @@
 import { Router } from "express";
-import {registerUser,loginUser,privateEndpoint,loginFront} from "../controllers/user.controller.js";
-//import passport from "passport";
-import { checkAuth } from "../middlewares/checkAuth.js";
+import UserController from "../controllers/user.controller.js";
+import passport from "passport";
+const userController=new UserController()
 const router=Router();
 
 router
 
-    .post('/register',registerUser)
-    .post('/login',loginUser)
-    .get('/privateEndpoint',checkAuth,privateEndpoint)
-    .post('/loginfront',loginFront)
+    .post('/register',userController.register)
+    .post('/login',userController.login)
+    .get('/current',passport.authenticate('jwt'),userController.current)
 export default router;

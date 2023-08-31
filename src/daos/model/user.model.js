@@ -1,4 +1,4 @@
-import { Schema,Model, model } from "mongoose";
+import { Schema,model } from "mongoose";
 const userCollection='users'
 const schema=new Schema({
     first_name:{type:String,required:true},
@@ -7,6 +7,7 @@ const schema=new Schema({
     age:{type:Number,required:true,default:0},
     password:{type:String, required:true},
     role:{type:String,required:true,default:"user"},
+    cart:{type:Array,default:[]},
     isGithub:{type:Boolean,default:false},
     isGoogle:{type:Boolean,default:false}
 })

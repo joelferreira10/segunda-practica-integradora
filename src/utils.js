@@ -11,6 +11,9 @@ export const hashPassword=(password)=>bcrypt.hashSync(password,bcrypt.genSaltSyn
 
 export const isValidPassword=(user,password)=>bcrypt.compareSync(password,user.password)
 
+export const createResponse=(res,statusCode,data)=>{
+    return res.status(statusCode).json({data})
+}
 
 export const mongoOption={
     store:MongoStore.create({
